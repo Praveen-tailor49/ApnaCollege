@@ -1,0 +1,44 @@
+.header-fixed-box{
+    display: flex;
+    width: 100%;
+  }
+  .header-fixed-box .left{
+    width: 20%;
+  }
+
+  .header-fixed-box .left img{
+    max-width: 50% !important;
+    height: auto;
+    margin: 1px 7px 10px 10px;
+
+  }
+  .header-fixed-box .right{
+    width: 70%;
+    text-align: center;
+    padding: 10px 0px;
+  }
+  .header-fixed-box .right .collage-info{
+    width: 100%;
+    height: 100%;
+    line-height: auto;
+  }
+  .header-fixed-box .right .collage-info h4{
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-fixed-box .right .collage-info p{
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
+
+  .header-fixed-box .right .collage-info h6{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
