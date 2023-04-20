@@ -31,7 +31,7 @@ const Body = () => {
     motherName: "",
     section: "",
     fatherContactNumber: "",
-    motherContactNumber: "", SeatNo:'', RegNo:'', sem:''
+    motherContactNumber: "", SeatNo: '', RegNo: '', sem: ''
   });
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const Body = () => {
           motherName: "",
           section: "",
           fatherContactNumber: "",
-          motherContactNumber: "", SeatNo:'', RegNo:'', sem:''
+          motherContactNumber: "", SeatNo: '', RegNo: '', sem: ''
         });
 
         dispatch({ type: SET_ERRORS, payload: {} });
@@ -202,6 +202,7 @@ const Body = () => {
                   <h1 className={classes.adminLabel}>PRN/Reg.No :</h1>
                   <input
                     required
+                    maxLength={16}
                     placeholder="PRN/Reg.No"
                     className={classes.adminInput}
                     type="text"
@@ -353,6 +354,7 @@ const Body = () => {
                 <div className={classes.adminForm3}>
                   <h1 className={classes.adminLabel}>Exa Seat No. :</h1>
                   <input
+                    maxLength={5}
                     required
                     placeholder="Examiation Seat No"
                     className={classes.adminInput}

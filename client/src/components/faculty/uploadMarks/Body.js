@@ -43,20 +43,20 @@ const Body = () => {
   }, [store.errors]);
 
   const handleInputChange = (value, _id, name, studentId, subjectCode, type) => {
-    if(type === 'Internal') {
-      const newMarks = [...marks];
-      let index = newMarks.findIndex((m) => m._id === _id);
-      if (index === -1) {
-        newMarks.push({ _id, value, name, studentId, subjectCode });
-      } else {
-        newMarks[index].value = value;
-        newMarks[index].name = name;
-        newMarks[index].studentId = studentId;
-        newMarks[index].subjectCode = subjectCode;
-      }
-      setMarks(newMarks);
+    if (type === 'Internal') {
+        const newMarks = [...marks];
+        let index = newMarks.findIndex((m) => m._id === _id);
+        if (index === -1) {
+          newMarks.push({ _id, value, name, studentId, subjectCode });
+        } else {
+          newMarks[index].value = value;
+          newMarks[index].name = name;
+          newMarks[index].studentId = studentId;
+          newMarks[index].subjectCode = subjectCode;
+        }
+        setMarks(newMarks);
     }
-    if(type === 'Practical') {
+    if (type === 'Practical') {
       const newPracticalMarks = [...practicalMarks];
       let index = newPracticalMarks.findIndex((m) => m._id === _id);
       if (index === -1) {
@@ -69,7 +69,7 @@ const Body = () => {
       }
       setPracticalMarks(newPracticalMarks);
     }
-    if(type === 'External') {
+    if (type === 'External') {
       const newExternalMarks = [...externalMarks];
       let index = newExternalMarks.findIndex((m) => m._id === _id);
       if (index === -1) {
@@ -82,7 +82,7 @@ const Body = () => {
       }
       setExternalMarks(newExternalMarks);
     }
-    if(type === 'Grede') {
+    if (type === 'Grede') {
       const newGredePoint = [...gredePoint];
       let index = newGredePoint.findIndex((m) => m._id === _id);
       if (index === -1) {
@@ -111,7 +111,7 @@ const Body = () => {
   const uploadMarks = (e) => {
     setError({});
     dispatch(
-      uploadMark(marks, externalMarks, practicalMarks, gredePoint, value.department, value.section, value.year, value.test)
+      uploadMark(marks, externalMarks, practicalMarks, gredePoint, value.department, value.section, value.year, value.test, value.sem)
     );
   };
 
@@ -347,37 +347,43 @@ const Body = () => {
                       {stu.department}
                     </h1>
                     <input
+                      maxLength="2"
+                      type='number'
                       onChange={(e) =>
                         handleInputChange(e.target.value, stu._id, stu.subjectName, value.student, stu.subjectCode, 'Internal')
                       }
                       // value={stu.marks}
                       className="col-span-2 border-2 w-24 px-2 h-8"
-                      type="text"
                     />
                     <input
+                      maxLength="2"
+                      type='number'
                       onChange={(e) =>
-                        handleInputChange(e.target.value, stu._id, stu.subjectName, value.student, stu.subjectCode,'Practical')
+                        handleInputChange(e.target.value, stu._id, stu.subjectName, value.student, stu.subjectCode, 'Practical')
                       }
                       // value={stu.marks}
                       className="col-span-2 border-2 w-24 px-2 h-8"
-                      type="text"
+
                     />
                     <input
+                      maxLength="2"
+                      type='number'
                       onChange={(e) =>
                         handleInputChange(e.target.value, stu._id, stu.subjectName, value.student, stu.subjectCode, 'External')
                       }
                       // value={stu.marks}
                       className="col-span-2 border-2 w-24 px-2 h-8"
-                      type="text"
+
                     />
                     <input
-                    maxLength={10}
+                      maxLength="2"
+                      type='number'
                       onChange={(e) =>
                         handleInputChange(e.target.value, stu._id, stu.subjectName, value.student, stu.subjectCode, 'Grede')
                       }
                       // value={stu.marks}
                       className="col-span-2 border-2 w-24 px-2 h-8"
-                      type="text"
+
                     />
                   </div>
                 ))}

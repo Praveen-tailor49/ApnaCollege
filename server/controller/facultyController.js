@@ -184,10 +184,10 @@ export const getStudent = async (req, res) => {
 
 export const uploadMarks = async (req, res) => {
   try {
-    const { department, year, section, test,  marks, externalMarks, practicalMarks, gredePoint } = req.body;
+    const { department, year, section, test,  marks, externalMarks, practicalMarks, gredePoint, sem } = req.body;
     const errors = { examError: String };
     const existingTest = await Subject.findOne({
-      department
+      department, sem
     });
     const isAlready = await Marks.find({
       exam: existingTest._id,

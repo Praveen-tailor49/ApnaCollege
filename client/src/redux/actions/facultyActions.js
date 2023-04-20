@@ -76,14 +76,14 @@ export const getStudent = (formData) => async (dispatch) => {
 };
 
 export const uploadMark =
-  (marks, externalMarks, practicalMarks, gredePoint, department, section, year, test) => async (dispatch) => {
+  (marks, externalMarks, practicalMarks, gredePoint, department, section, year, test, sem) => async (dispatch) => {
     try {
       const formData = {
         marks, externalMarks, practicalMarks, gredePoint,
         department,
         section,
         year,
-        test,
+        test, sem,
       };
       const { data } = await api.uploadMarks(formData);
       alert("Marks Uploaded Successfully");
